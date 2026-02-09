@@ -27,6 +27,9 @@ public class LoginController {
         // use observable list to populate the combo box
         roles = FXCollections.observableArrayList("Admin", "User", "Guest");
         roleCombo.setItems(roles);
+        
+        // bind the roleLabel text property to the selected role value property
+        roleLabel.textProperty().bind(roleCombo.valueProperty());
     }
 
 

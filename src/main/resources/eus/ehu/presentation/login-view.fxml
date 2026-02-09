@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="383.0" prefWidth="324.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.presentation.LoginController">
+<VBox alignment="CENTER" prefHeight="383.0" prefWidth="324.0" spacing="20.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eus.ehu.presentation.LoginController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -19,8 +19,10 @@
    </Label>
    <AnchorPane prefHeight="388.0" prefWidth="284.0">
       <children>
-         <ComboBox fx:id="roleCombo" layoutX="61.0" layoutY="43.0" onAction="#comboHandler" prefWidth="150.0" />
+         <ComboBox fx:id="roleCombo" layoutX="61.0" layoutY="43.0" prefWidth="150.0" />
          <Label fx:id="roleLabel" layoutX="112.0" layoutY="176.0" text=" " />
+         <Label layoutX="61.0" layoutY="120.0" text="You Selected: " />
+         <Label fx:id="roleLabel" layoutX="146.0" layoutY="120.0" />
       </children>
    </AnchorPane>
 </VBox>
