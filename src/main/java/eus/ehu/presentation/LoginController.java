@@ -41,12 +41,14 @@ public class LoginController {
     @FXML
     void switchTheme(){
         Scene scene = roleCombo.getScene();
-        scene.getStylesheets().clear();
-
         if (darkTheme.isSelected()) {
             scene.getStylesheets().add("https://raw.githubusercontent.com/antoniopelusi/JavaFX-Dark-Theme/main/style.css");
+            darkTheme.setStyle("-fx-text-fill: white;");
+            lightTheme.setStyle("-fx-text-fill: white;");
         } else if (lightTheme.isSelected()) {
             scene.getStylesheets().clear();
+            darkTheme.setStyle(null);
+            lightTheme.setStyle(null);
         }
     }
 
