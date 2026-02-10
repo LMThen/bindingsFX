@@ -17,16 +17,19 @@ import java.util.Properties;
 
 public class LoginController {
 
-    private static final String DARK_CSS =
-            "https://raw.githubusercontent.com/antoniopelusi/JavaFX-Dark-Theme/main/style.css";
+    private static final String DARK_CSS = "https://raw.githubusercontent.com/antoniopelusi/JavaFX-Dark-Theme/main/style.css";
 
     private final File configFile = new File("config.properties");
     private final Properties props = new Properties();
 
-    @FXML private ComboBox<String> roleCombo;
-    @FXML private Label roleLabel;
-    @FXML private RadioButton darkTheme;
-    @FXML private RadioButton lightTheme;
+    @FXML
+    private ComboBox<String> roleCombo;
+    @FXML
+    private Label roleLabel;
+    @FXML
+    private RadioButton darkTheme;
+    @FXML
+    private RadioButton lightTheme;
 
     private ObservableList<String> roles;
 
@@ -59,7 +62,8 @@ public class LoginController {
     @FXML
     void switchTheme() {
         Scene scene = roleCombo.getScene();
-        if (scene == null) return;
+        if (scene == null)
+            return;
 
         String theme = darkTheme.isSelected() ? "dark" : "light";
         applyThemeToScene(scene, theme);
@@ -71,19 +75,21 @@ public class LoginController {
             if (!scene.getStylesheets().contains(DARK_CSS)) {
                 scene.getStylesheets().add(DARK_CSS);
             }
-            //make RadioButton labels white in dark mode.
+            // make RadioButton labels white in dark mode.
             darkTheme.setStyle("-fx-text-fill: white;");
             lightTheme.setStyle("-fx-text-fill: white;");
         } else {
             scene.getStylesheets().remove(DARK_CSS);
-            //restore default color
+            // restore default color
             darkTheme.setStyle(null);
             lightTheme.setStyle(null);
         }
+        printTheme(theme);
     }
 
     private String loadTheme() {
-        if (!configFile.exists()) return "light";
+        if (!configFile.exists())
+            return "light";
 
         try (FileInputStream in = new FileInputStream(configFile)) {
             props.load(in);
@@ -102,5 +108,9 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void printTheme(String theme) {
+        System.out.println(("dark".equals(theme) ? "Dark" : "Light") + " " + "Theme");
     }
 }
