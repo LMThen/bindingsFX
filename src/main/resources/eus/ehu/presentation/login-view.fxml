@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -11,18 +13,24 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    
-   <Label text="Learning">
-      <font>
-         <Font size="31.0" />
-      </font>
-   </Label>
    <AnchorPane prefHeight="388.0" prefWidth="284.0">
       <children>
-         <ComboBox fx:id="roleCombo" layoutX="61.0" layoutY="43.0" prefWidth="150.0" />
-         <Label fx:id="roleLabel" layoutX="112.0" layoutY="176.0" text=" " />
-         <Label layoutX="61.0" layoutY="120.0" text="You Selected: " />
-         <Label fx:id="roleLabel" layoutX="146.0" layoutY="120.0" />
+         <ComboBox fx:id="roleCombo" layoutX="59.0" layoutY="102.0" prefHeight="28.0" prefWidth="151.0" />
+         <Label fx:id="roleLabel" layoutX="170.0" layoutY="164.0" />
+         <Label layoutX="59.0" layoutY="164.0" text="You selected: " />
+         <Label layoutX="59.0" layoutY="206.0" text="Select a theme: " />
+         <RadioButton fx:id="darkTheme" layoutX="58.0" layoutY="240.0" mnemonicParsing="false" onAction="#switchTheme" prefHeight="18.0" prefWidth="151.0" text="Dark Theme">
+            <toggleGroup>
+               <ToggleGroup fx:id="themeMenu" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton fx:id="lightTheme" layoutX="58.0" layoutY="274.0" mnemonicParsing="false" onAction="#switchTheme" prefHeight="18.0" prefWidth="151.0" text="Light Theme" toggleGroup="$themeMenu" />
+          
+         <Label layoutX="83.0" layoutY="55.0" text="Learning">
+            <font>
+               <Font size="31.0" />
+            </font>
+         </Label>
       </children>
    </AnchorPane>
 </VBox>
